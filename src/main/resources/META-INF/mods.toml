@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="GNU General Public License v3.0"
+
+[[mods]]
+    modId="quick_cure"
+    version="${file.jarVersion}"
+    displayName="Quick Cure"
+    logoFile="logo.png"
+    credits="Yes"
+    authors="Sarinsa"
+    description="Makes curing zombie villagers happen instantaneously."
+
+[[dependencies.quick_cure]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36.1.4,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.quick_cure]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17)"
+    ordering="NONE"
+    side="BOTH"
