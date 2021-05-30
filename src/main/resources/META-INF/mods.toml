@@ -1,6 +1,7 @@
 modLoader="javafml"
 loaderVersion="[36,)"
 license="GNU General Public License v3.0"
+issueTrackerURL="https://github.com/Sarinsa/QuickCure/issues"
 
 [[mods]]
     modId="quick_cure"
