@@ -8,7 +8,7 @@ issueTrackerURL="https://github.com/Sarinsa/QuickCure/issues"
     version="${file.jarVersion}"
     displayName="Quick Cure"
     logoFile="logo.png"
-    credits="Yes"
+    credits="AmberGoop (Mod concept), Frenderman (Logo texture)"
     authors="Sarinsa"
     description="Makes curing zombie villagers happen instantaneously."
 
