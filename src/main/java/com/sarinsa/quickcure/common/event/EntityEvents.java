@@ -11,11 +11,9 @@ public class EntityEvents {
     public void onZombieVillagerCure(LivingEvent.LivingUpdateEvent event) {
 
         if (event.getEntityLiving() instanceof ZombieVillager zombieVillager) {
-                             // isAlive                   // isConverting
-            if (zombieVillager.m_6084_() && zombieVillager.m_34408_()) {
-                                           // isClientSide
-                if (!zombieVillager.f_19853_.f_46443_) {
-                    zombieVillager.m_34398_((ServerLevel) zombieVillager.f_19853_);
+            if (zombieVillager.isAlive() && zombieVillager.isConverting()) {
+                if (!zombieVillager.level.isClientSide) {
+                    zombieVillager.finishConversion((ServerLevel) zombieVillager.level);
                 }
             }
         }
