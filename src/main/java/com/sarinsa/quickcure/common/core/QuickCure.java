@@ -1,8 +1,10 @@
 package com.sarinsa.quickcure.common.core;
 
 import com.sarinsa.quickcure.common.event.EntityEvents;
+import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegisterGameTestsEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

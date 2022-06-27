@@ -9,7 +9,6 @@ public class EntityEvents {
 
     @SubscribeEvent
     public void onZombieVillagerCure(LivingEvent.LivingUpdateEvent event) {
-
         if (event.getEntityLiving() instanceof ZombieVillager zombieVillager) {
             if (zombieVillager.isAlive() && zombieVillager.isConverting()) {
                 if (!zombieVillager.level.isClientSide) {
