@@ -8,8 +8,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public class EntityEvents {
 
     @SubscribeEvent
-    public void onZombieVillagerCure(LivingEvent.LivingUpdateEvent event) {
-        if (event.getEntityLiving() instanceof ZombieVillager zombieVillager) {
+    public void onZombieVillagerCure(LivingEvent.LivingTickEvent event) {
+        if (event.getEntity() instanceof ZombieVillager zombieVillager) {
             if (zombieVillager.isAlive() && zombieVillager.isConverting()) {
                 if (!zombieVillager.level.isClientSide) {
                     zombieVillager.finishConversion((ServerLevel) zombieVillager.level);
