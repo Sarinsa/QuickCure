@@ -1,10 +1,9 @@
 package com.sarinsa.quickcure.common.core;
 
-import com.sarinsa.quickcure.common.event.EntityEvents;
-import net.minecraft.gametest.framework.GameTestHelper;
-import net.minecraft.world.entity.animal.axolotl.Axolotl;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.monster.ZombieVillager;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegisterGameTestsEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fml.IExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -19,7 +18,7 @@ public class QuickCure {
     public static final Logger LOGGER = LogManager.getLogger(MODID);
 
     public QuickCure() {
-        MinecraftForge.EVENT_BUS.register(new EntityEvents());
+        MinecraftForge.EVENT_BUS.addListener(this::onZombieVillagerCure);
 
         ModLoadingContext.get().registerExtensionPoint(IExtensionPoint.DisplayTest.class,
                 () -> new IExtensionPoint.DisplayTest(
@@ -28,5 +27,15 @@ public class QuickCure {
                 )
         );
         LOGGER.info("No more dying of old age before your zombie friends get healthy again!");
+    }
+
+    public void onZombieVillagerCure(LivingEvent.LivingTickEvent event) {
+        if (event.getEntity() instanceof ZombieVillager zombieVillager) {
+            if (zombieVillager.isAlive() && zombieVillager.isConverting()) {
+                if (!zombieVillager.level.isClientSide) {
+                    zombieVillager.finishConversion((ServerLevel) zombieVillager.level);
+                }
+            }
+        }
     }
 }
