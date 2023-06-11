@@ -32,8 +32,8 @@ public class QuickCure {
     public void onZombieVillagerCure(LivingEvent.LivingTickEvent event) {
         if (event.getEntity() instanceof ZombieVillager zombieVillager) {
             if (zombieVillager.isAlive() && zombieVillager.isConverting()) {
-                if (!zombieVillager.level.isClientSide) {
-                    zombieVillager.finishConversion((ServerLevel) zombieVillager.level);
+                if (!zombieVillager.level().isClientSide) {
+                    zombieVillager.finishConversion((ServerLevel) zombieVillager.level());
                 }
             }
         }
